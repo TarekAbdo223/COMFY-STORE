@@ -1,6 +1,6 @@
 import React from "react";
 import { customFetch, formatPrice } from "../utils";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export const loader = async ({ params }) => {
   // console.log(params);
@@ -17,7 +17,38 @@ const SingleProduct = () => {
     product.attributes;
   const dollarsAmount = formatPrice(price);
 
-  return <div>SingleProduct</div>;
+  return (
+    <section>
+      <div className="text-md breadcrumbs">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+        </ul>
+      </div>
+      {/* PRODUCT */}
+      <div className="mt-6 grid gap-y-8 lg:grid-cols-2 lg:gap-x-16">
+        {/* image */}
+        <img
+          src={image}
+          alt={title}
+          className="w-96 h-96 object-cover rounded-lg lg:w-full"
+        />
+        {/* product info */}
+        <div>
+          <h1 className="capitalize text-3xl font-bold">{title}</h1>
+          <h4 className="text-xl text-neutral-content font-bold mt-2">
+            {company}
+          </h4>
+          <p className="mt-3 text-xl">{dollarsAmount}</p>
+          <p className="mt-6 leading-8">{description}</p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default SingleProduct;
