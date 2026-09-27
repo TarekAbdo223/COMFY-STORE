@@ -39,6 +39,7 @@ const SingleProduct = () => {
     price,
     company,
     productColor,
+    amount,
   };
   console.log(cartProduct);
 
