@@ -11,6 +11,7 @@ const defaultState = {
 };
 
 const getCartFromLocalStorage = () => {
+  // we parse cause we have it as a string
   return JSON.parse(localStorage.getItem("cart")) || defaultState;
 };
 
@@ -32,7 +33,10 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.calculateTotals(state);
       toast.success("Item added to cart");
     },
-    clearCart: (state) => {},
+    clearCart: (state) => {
+      localStorage.setItem("cart", JSON.stringify(defaultState));
+      return defaultState;
+    },
     removeItem: (state, action) => {},
     editItem: (state, action) => {},
     calculateTotals: (state) => {
