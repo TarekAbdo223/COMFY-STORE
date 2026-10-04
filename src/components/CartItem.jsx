@@ -1,5 +1,5 @@
 import React from "react";
-import { formatPrice } from "../utils/index";
+import { formatPrice, generateAmountOptions } from "../utils/index";
 
 const CartItem = ({ cartItem }) => {
   const { cartID, title, price, image, amount, company, productColor } =
@@ -18,7 +18,7 @@ const CartItem = ({ cartItem }) => {
         className="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover"
       />
       {/* INFO */}
-      <div className="sm:ml-16">
+      <div className="sm:ml-16 sm-w-48">
         {/* TITLE */}
         <h3 className="capitalize font-medium">{title}</h3>
         {/* COMPANY */}
@@ -36,7 +36,22 @@ const CartItem = ({ cartItem }) => {
       </div>
       <div className="sm:ml-24 ">
         {/* AMOUNT */}
+        <div className="form-control max-w-xs">
+          <label htmlFor="amount" className="label p-0">
+            <span className="label-text">Amount</span>
+          </label>
+          <select
+            name="amount"
+            id="amount"
+            className="mt-2 select select-base select-bordered select-xs"
+          >
+            {generateAmountOptions(amount + 5)}
+          </select>
+        </div>
         {/* REMOVE */}
+        <button className="mt-2 link link-primary link-hover text-sm">
+          remove
+        </button>
       </div>
       <p className="font-medium sm:ml-auto ">{formatPrice(amount)}</p>
       {/* PRICE */}
