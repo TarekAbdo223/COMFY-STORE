@@ -16,6 +16,27 @@ const CartItem = ({ cartItem }) => {
         alt={title}
         className="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover"
       />
+      {/* INFO */}
+      <div className="sm:ml-16">
+        {/* TITLE */}
+        <h3 className="capitalize font-medium">{title}</h3>
+        {/* COMPANY */}
+        <h4 className="capitalize text-sm text-neutral-content mt-2">
+          {company}
+        </h4>
+        {/* COLOR */}
+        <p className="mt-4 text-sm capitalize flex items-center gap-x-2">
+          color:
+          <span
+            className="badge badge-sm"
+            style={{ backgroundColor: productColor }}
+          ></span>
+        </p>
+      </div>
+
+      {/* AMOUNT */}
+      {/* REMOVE */}
+      {/* PRICE */}
     </article>
   );
 };
