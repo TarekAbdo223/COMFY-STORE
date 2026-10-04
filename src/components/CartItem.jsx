@@ -1,4 +1,5 @@
 import React from "react";
+import { formatPrice } from "../utils/index";
 
 const CartItem = ({ cartItem }) => {
   const { cartID, title, price, image, amount, company, productColor } =
@@ -33,9 +34,11 @@ const CartItem = ({ cartItem }) => {
           ></span>
         </p>
       </div>
-
-      {/* AMOUNT */}
-      {/* REMOVE */}
+      <div className="sm:ml-24 ">
+        {/* AMOUNT */}
+        {/* REMOVE */}
+      </div>
+      <p className="font-medium sm:ml-auto ">{formatPrice(amount)}</p>
       {/* PRICE */}
     </article>
   );
