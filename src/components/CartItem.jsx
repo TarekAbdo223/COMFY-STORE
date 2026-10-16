@@ -68,8 +68,8 @@ const CartItem = ({ cartItem }) => {
           remove
         </button>
       </div>
-      <p className="font-medium sm:ml-auto ">{formatPrice(amount)}</p>
       {/* PRICE */}
+      <p className="font-medium sm:ml-auto">{formatPrice(price)}</p>
     </article>
   );
 };
