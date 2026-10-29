@@ -1,7 +1,9 @@
 import { Form, Link } from "react-router-dom";
 import { FormInput, SubmitBtn } from "../components";
 
-export const action = async () => {
+export const action = (store) => async () => {
+  console.log(store);
+
   return null;
 };
 
