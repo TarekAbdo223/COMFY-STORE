@@ -22,6 +22,7 @@ import { loader as productLoader } from "./pages/Products";
 
 //actions
 import { action as registerAction } from "../src/pages/Register";
+import { action as loginAction } from "../src/pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -53,7 +54,12 @@ const router = createBrowserRouter([
       { path: "orders", element: <Orders /> },
     ],
   },
-  { path: "/login", element: <Login />, errorElement: <Error /> },
+  {
+    path: "/login",
+    element: <Login />,
+    errorElement: <Error />,
+    action: loginAction,
+  },
   {
     path: "/register",
     element: <Register />,

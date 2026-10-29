@@ -29,24 +29,9 @@ const Register = () => {
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
       >
         <h4 className="text-center text-3xl font-bold">Register</h4>
-        <FormInput
-          type="text"
-          label="username"
-          name="username"
-          defaultValue="jamis101"
-        />
-        <FormInput
-          type="email"
-          label="email"
-          name="email"
-          defaultValue="jamis101@gmail.com"
-        />
-        <FormInput
-          type="password"
-          label="password"
-          name="password"
-          defaultValue="secrete"
-        />
+        <FormInput type="text" label="username" name="username" />
+        <FormInput type="email" label="email" name="email" />
+        <FormInput type="password" label="password" name="password" />
         <div className="mt-4">
           <SubmitBtn text="register" />
         </div>
