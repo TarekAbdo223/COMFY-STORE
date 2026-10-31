@@ -22,7 +22,8 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state, aciton) => {
-      console.log("login");
+      console.log(aciton.payload);
+      
     },
     logoutUser: (state) => {
       state.user = null;
