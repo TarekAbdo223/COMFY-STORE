@@ -17,7 +17,7 @@ const getUserFromLocalStorage = () => {
 };
 
 const initialState = {
-  user: { username: getUserFromLocalStorage() },
+  user: getUserFromLocalStorage(),
   theme: getThemeFromLocalStorage(),
 };
 
