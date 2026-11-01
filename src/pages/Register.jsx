@@ -16,9 +16,10 @@ export const action = async ({ request }) => {
       error?.response?.data?.error?.message ||
       "please double check your credentials";
     toast.error(errorMessage);
+    return null;
   }
 
-  return null;
+  // return null;
 };
 
 const Register = () => {
