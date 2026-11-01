@@ -1,11 +1,15 @@
 import React from "react";
-import { redirect } from "react-router-dom";
+import { redirect, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
+import { OrdersList, PaginationContainer, SectionsTitle } from "../components";
+import { customFetch } from "../utils";
 
 export const loader =
   (store) =>
   async ({ request }) => {
-    const user = store.getState().user;
+    console.log(store);
+
+    const user = store.getState().userState.user;
     if (!user) {
       toast.warn("You must be logged in to view orders");
       return redirect("/login");
@@ -35,7 +39,17 @@ export const loader =
   };
 
 const Orders = () => {
-  return <div>Orders</div>;
+  const { meta } = useLoaderData();
+  if (meta.pagination.total < 1) {
+    return <SectionsTitle text="please make an order" />;
+  }
+  return (
+    <>
+      <SectionsTitle text="Your Orders" />
+      <OrdersList />
+      <PaginationContainer />
+    </>
+  );
 };
 
 export default Orders;
