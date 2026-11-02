@@ -8,12 +8,19 @@ import { Link, useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/cartSlice";
 
+const singleProductQuery = (id) => {
+  return {
+    queryKey: ["singleProduct", id],
+    queryFn: () => customFetch(`/products/${id}`),
+  };
+};
+
 export const loader =
   (queryClient) =>
   async ({ params }) => {
     // console.log(params);
     const { id } = params;
-    const response = await customFetch(`/products/${id}`);
+    const response = await queryClient.ensureQueryData(singleProductQuery(id));
     // console.log(response);
     const product = response.data.data;
     return { product };
