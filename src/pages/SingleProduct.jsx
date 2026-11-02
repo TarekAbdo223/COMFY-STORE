@@ -8,14 +8,16 @@ import { Link, useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/cartSlice";
 
-export const loader = async ({ params }) => {
-  // console.log(params);
-  const { id } = params;
-  const response = await customFetch(`/products/${id}`);
-  // console.log(response);
-  const product = response.data.data;
-  return { product };
-};
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    // console.log(params);
+    const { id } = params;
+    const response = await customFetch(`/products/${id}`);
+    // console.log(response);
+    const product = response.data.data;
+    return { product };
+  };
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
