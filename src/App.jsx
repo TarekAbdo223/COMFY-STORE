@@ -49,19 +49,19 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
         errorElement: <ErrorElement />,
-        loader: landingLoader(QueryClient),
+        loader: landingLoader(queryClient),
       },
       {
         path: "products",
         element: <Products />,
         errorElement: <ErrorElement />,
-        loader: productLoader(QueryClient),
+        loader: productLoader(queryClient),
       },
       {
         path: "products/:id",
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
-        loader: singleProductLoader(QueryClient),
+        loader: singleProductLoader(queryClient),
       },
       { path: "cart", element: <Cart /> },
       { path: "about", element: <About /> },
@@ -69,12 +69,12 @@ const router = createBrowserRouter([
         path: "checkout",
         element: <Checkout />,
         loader: checkoutLoader(store),
-        action: checkoutAction(store, QueryClient),
+        action: checkoutAction(store, queryClient),
       },
       {
         path: "orders",
         element: <Orders />,
-        loader: ordersLoader(store, QueryClient),
+        loader: ordersLoader(store, queryClient),
       },
     ],
   },
@@ -99,7 +99,6 @@ const App = () => {
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
-  // <RouterProvider router={router} />;
 };
 
 export default App;
